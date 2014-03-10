@@ -688,9 +688,9 @@ var map = L.mapbox.map('map', 'crossingtherubikhan.hf648fpg', 'spots')
 // Use https for markers
 mapbox.markers.marker_baseurl = 'https://a.tiles.mapbox.com/v3/marker/';
 
-// var spots = mapbox.markers.layer()
+var spots = mapbox.markers.layer()
 //   // Load up markers from geojson data.
-//   .features(geojson)
+   .features(geojson)
 //   // Define a new factory function. Takes geojson input and returns a
 //   // DOM element that represents the point.
 
@@ -699,10 +699,10 @@ var featureLayer = L.mapbox.featureLayer()
     .addTo(map);
 
   // .factory(function(f) {
-  //   var el = document.createElement('div');
-  //   el.className = 'spot spot-' + f.properties.id;
-  //   return el;
-  // });
+  //    var el = document.createElement('div');
+  //    el.className = 'spot spot-' + f.properties.id;
+  //    return el;
+  //  });
 
 // Array of story section elements.
 var sections = document.getElementsByTagName('section');
