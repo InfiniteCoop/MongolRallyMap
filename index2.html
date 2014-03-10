@@ -7,6 +7,7 @@
 <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 <script src='underscore-min.js'></script>
+<script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
 <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.js'></script>
 <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css' rel='stylesheet' />
 
@@ -574,108 +575,108 @@ body.section-0 #map { opacity:0.75; }
 
 <script>
 var geojson = [
-  { "geometry": { "type": "Point", "coordinates": [52.96187505907603, 57.392578125] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [52.96187505907603, 57.392578125] },
     "properties": { "id": "cover", "zoom": 3 } },
-  { "geometry": { "type": "Point", "coordinates": [-0.155697, 51.508726] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [-0.155697, 51.508726] },
     "properties": { "id": "hyde", "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [1.310024, 51.128768] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [1.310024, 51.128768] },
     "properties": { "id": "dover", "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [1.876686, 50.96529] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [1.876686, 50.96529] },
     "properties": { "id": "calais", "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [3.73038, 51.053468] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [3.73038, 51.053468] },
     "properties": { "id": "ghent", "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [11.07675, 49.45403] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [11.07675, 49.45403] },
     "properties": { "id": "nuremberg", "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [13.22932, 49.332162] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [13.22932, 49.332162] },
     "properties": { "id": "klenova", "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [14.426765, 50.090679] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [14.426765, 50.090679] },
     "properties": { "id": "prague", "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [16.373819, 48.208174] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [16.373819, 48.208174] },
     "properties": { "id": "vienna", "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [15.976868, 45.81407] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [15.976868, 45.81407] },
     "properties": { "id": "zagreb",  "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [16.440193, 43.514132] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [16.440193, 43.514132] },
     "properties": { "id": "split",  "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [18.111048, 42.642889] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [18.111048, 42.642889] },
     "properties": { "id": "dubrovnik",  "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [18.406219, 43.855171] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [18.406219, 43.855171] },
     "properties": { "id": "sarajevo",  "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [23.3230598, 42.6977149] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [23.3230598, 42.6977149] },
     "properties": { "id": "sofia", "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [28.9651646, 41.0096334] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [28.9651646, 41.0096334] },
     "properties": { "id": "istanbul",  "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [32.8520491, 39.9272237] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [32.8520491, 39.9272237] },
     "properties": { "id": "ankara",  "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [34.8296234, 38.642089] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [34.8296234, 38.642089] },
     "properties": { "id": "goreme",  "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [41.6360085, 41.6509502] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [41.6360085, 41.6509502] },
     "properties": { "id": "batumi", "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [44.8015706, 41.6935009] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [44.8015706, 41.6935009] },
     "properties": { "id": "tbilisi",  "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [49.8466787, 40.3925137] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [49.8466787, 40.3925137] },
     "properties": { "id": "baku",  "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [51.383057, 40.152375] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [51.383057, 40.152375] },
     "properties": { "id": "caspian",  "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [52.992897, 40.001903] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [52.992897, 40.001903] },
     "properties": { "id": "turkmenbashi",  "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [58.3874263, 37.9396678] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [58.3874263, 37.9396678] },
     "properties": { "id": "ashgabat", "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [60.3620006, 41.3776893] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [60.3620006, 41.3776893] },
     "properties": { "id": "khiva",  "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [64.4231326, 39.7675529] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [64.4231326, 39.7675529] },
     "properties": { "id": "bukhara",  "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [66.9607742126004, 39.6415721] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [66.9607742126004, 39.6415721] },
     "properties": { "id": "samarkand",  "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [69.228973, 41.292092] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [69.228973, 41.292092] },
     "properties": { "id": "tashkent",  "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [72.796783, 40.524679] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [72.796783, 40.524679] },
     "properties": { "id": "osh",  "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [74.584808, 42.877820] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [74.584808, 42.877820] },
     "properties": { "id": "bishkek",  "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [76.9453467, 43.2389912] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [76.9453467, 43.2389912] },
     "properties": { "id": "almaty", "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [80.221526, 50.3484797] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [80.221526, 50.3484797] },
     "properties": { "id": "semey",  "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [83.747406, 53.365176] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [83.747406, 53.365176] },
     "properties": { "id": "barnaul",  "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [91.633530, 48.005013] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [91.633530, 48.005013] },
     "properties": { "id": "khovd",  "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [100.710468, 46.183803] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [100.710468, 46.183803] },
     "properties": { "id": "bayankhongor", "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [106.975911816806, 47.9462225] },
+  {"type": "Feature", "geometry": { "type": "Point", "coordinates": [106.975911816806, 47.9462225] },
     "properties": { "id": "ulaanbaatar",  "zoom": 8 } },
 ];
 
@@ -687,16 +688,21 @@ var map = L.mapbox.map('map', 'crossingtherubikhan.hf648fpg', 'spots')
 // Use https for markers
 mapbox.markers.marker_baseurl = 'https://a.tiles.mapbox.com/v3/marker/';
 
-var spots = mapbox.markers.layer()
-  // Load up markers from geojson data.
-  .features(geojson)
-  // Define a new factory function. Takes geojson input and returns a
-  // DOM element that represents the point.
-  .factory(function(f) {
-    var el = document.createElement('div');
-    el.className = 'spot spot-' + f.properties.id;
-    return el;
-  });
+// var spots = mapbox.markers.layer()
+//   // Load up markers from geojson data.
+//   .features(geojson)
+//   // Define a new factory function. Takes geojson input and returns a
+//   // DOM element that represents the point.
+
+var featureLayer = L.mapbox.featureLayer()
+    .features(geojson)
+    .addTo(map);
+
+  // .factory(function(f) {
+  //   var el = document.createElement('div');
+  //   el.className = 'spot spot-' + f.properties.id;
+  //   return el;
+  // });
 
 // Array of story section elements.
 var sections = document.getElementsByTagName('section');
