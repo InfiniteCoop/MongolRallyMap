@@ -700,7 +700,7 @@ var spots = mapbox.markers.layer()
 
 // Creates the map with tile and marker layers and
 // no input handlers (mouse drag, scrollwheel, etc).
-var map = mapbox.map('map', [tiles, spots], null, []);
+var map = mapbox.map('map', [tiles, spots], null, [easey_handlers.DragHandler()]);
 
 // Array of story section elements.
 var sections = document.getElementsByTagName('section');
@@ -728,7 +728,7 @@ var setActive = function(index, ease) {
     map.centerzoom(markers[index].location, markers[index].data.properties.zoom||14)
     .zoom(6);
   } else {
-    map.ease.location(markers[index].location).zoom(markers[index].data.properties.zoom||14).optimal(0.75, 1.00);
+    map.ease.location(markers[index].location).zoom(markers[index].data.properties.zoom||14).optimal(0.75, 2);
   }
 
   return true;
