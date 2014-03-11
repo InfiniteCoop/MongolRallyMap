@@ -682,27 +682,29 @@ var geojson = [
 
 
 // Creates the map and sets the starting view
-var map = L.mapbox.map('map', 'crossingtherubikhan.hf648fpg', 'spots')
+var map = L.mapbox.map('map', 'crossingtherubikhan.hf648fpg')
   .setView([50, 50], 3);
+  map.featureLayer.setGeoJSON(geojson);
 
 // Use https for markers
 mapbox.markers.marker_baseurl = 'https://a.tiles.mapbox.com/v3/marker/';
 
-var spots = mapbox.markers.layer()
-//   // Load up markers from geojson data.
-   .features(geojson)
+// var spots = L.mapbox.markers.layer()
+// //   // Load up markers from geojson data.
+//    .features(geojson)
+//    .addTo(map);
 //   // Define a new factory function. Takes geojson input and returns a
 //   // DOM element that represents the point.
 
-var featureLayer = L.mapbox.featureLayer()
-    .features(geojson)
-    .addTo(map);
+// var featureLayer = L.mapbox.featureLayer()
+//     .features(geojson)
+//     .addTo(map);
 
-  // .factory(function(f) {
-  //    var el = document.createElement('div');
-  //    el.className = 'spot spot-' + f.properties.id;
-  //    return el;
-  //  });
+//   .factory(function(f) {
+//      var el = document.createElement('div');
+//      el.className = 'spot spot-' + f.properties.id;
+//      return el;
+//    });
 
 // Array of story section elements.
 var sections = document.getElementsByTagName('section');
