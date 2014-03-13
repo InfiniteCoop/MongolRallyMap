@@ -6,10 +6,12 @@
 <!--[if lt IE 9]>
 <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
+<Meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
 <script src='underscore-min.js'></script>
 <script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
 <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.js'></script>
 <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css' rel='stylesheet' />
+
 
 <style>
 body {
@@ -179,8 +181,8 @@ p { font-size:.85em; margin:0px; }
 
 
 /* Distinguish the "cover page" visually other sections. */
-body.section-0 #map { opacity:0.75; }
-
+/*body.section-0 #map { opacity:1; }
+*/
 @media (max-width:640px) {
   body {
     font-size:12px;
@@ -687,17 +689,17 @@ var map = L.mapbox.map('map', 'crossingtherubikhan.hf648fpg')
   map.featureLayer.setGeoJSON(geojson);
 
 // Use https for markers
-mapbox.markers.marker_baseurl = 'https://a.tiles.mapbox.com/v3/marker/';
+// mapbox.markers.marker_baseurl = 'https://a.tiles.mapbox.com/v3/marker/';
 
-// var spots = L.mapbox.markers.layer()
-// //   // Load up markers from geojson data.
-//    .features(geojson)
-//    .addTo(map);
+var spots = L.mapbox.markers.layer()
+   // Load up markers from geojson data.
+   .features(geojson)
+   .addTo(map);
 //   // Define a new factory function. Takes geojson input and returns a
 //   // DOM element that represents the point.
 
 // var featureLayer = L.mapbox.featureLayer()
-//     .features(geojson)
+//     .setGeoJSON(geojson)
 //     .addTo(map);
 
 //   .factory(function(f) {
