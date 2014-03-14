@@ -5,10 +5,13 @@
 <!--[if lt IE 9]>
 <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
+
+<!-- Stock scripts/stylesheets -->
 <script src='underscore-min.js'></script>
-<script src='https://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.js'></script>
+<script src='mapbox.js'></script>
 <link href='mapbox.css' rel='stylesheet' />
-<link href='mapstyling.css' rel='stylesheet' />
+
+<!-- Page styling rules -->
 <style>
 body {
   margin:0px;
@@ -17,6 +20,7 @@ body {
   background:#fff;
   }
 
+/*Scrolling text block on left third of screen*/
 article {
   width:33.3333%;
   min-width:320px;
@@ -24,6 +28,8 @@ article {
   padding-top:40px;
   padding-bottom:33.3333%;
   }
+
+/*Individual text sections*/
 section {
   padding:40px;
   margin-left:40px;
@@ -32,6 +38,8 @@ section {
   -moz-transition:background 500ms, color 500ms;
   -webkit-transition:background 500ms, color 500ms;
   }
+
+/*Set shadow blur for inactive sections*/
 section,
 section a {
   color:#888;
@@ -40,31 +48,20 @@ section a {
   text-shadow:rgba(64,64,64,1) 0px 0px 4px;
   }
 
+/*Set background color, text color for active sections*/
 section.active {
   background:#0097fb;
   color:#eee;
   }
-
 section.active a { color:#eee; }
 section.active small { color:#000; }
+
+/*Set text size/formatting rules*/
 h1 { font-size:1.5em; line-height:1em; text-align: center; }
 h2 { font-size:1.3333em; }
-h3 {font-size:1em; text-align: center; margin: 0px 10px 20px;  }
+h3 {font-size:1em; text-align: center; margin: 0px 0px 0px;  }
 h1,h2 { margin: 0px 10px 5px; }
 p { font-size:.85em; margin:10px 10px, 0px;  text-align:justify; }
-
-.scroll {
-  position:absolute;
-  right:0px; bottom:0px;
-  font-size:12px;
-  text-transform:uppercase;
-  padding:5px 120px;
-  }
-
-.colophon {
-  display:block;
-  margin-top:10px;
-  }
 
 .cover:before {
   content:'';
@@ -72,8 +69,11 @@ p { font-size:.85em; margin:10px 10px, 0px;  text-align:justify; }
   width:120px; height:120px;
   margin:0px auto 20px;
   }
+
+/*Team logo on first section*/
 .cover.active:before { background:url(icons.png) 0px -120px no-repeat; }
 
+/*Map pane*/
 #pane {
   position:fixed;
   top:0px;
@@ -81,6 +81,7 @@ p { font-size:.85em; margin:10px 10px, 0px;  text-align:justify; }
   right:0px;
   width:66.6666%;
   }
+
 #map  {
   position:absolute;
   top:0px;
@@ -92,6 +93,7 @@ p { font-size:.85em; margin:10px 10px, 0px;  text-align:justify; }
   -webkit-transition:opacity 250ms;
   }
 
+/*Point to png file for marker images*/
 .spot {
   width:120px;
   height:120px;
@@ -100,6 +102,7 @@ p { font-size:.85em; margin:10px 10px, 0px;  text-align:justify; }
   position:absolute;
   }
 
+/*Shift png image left/right depending on whether marker is active*/
 .spot-cover { display:none; }
 .spot-hyde { background-position:-130px 0px; }
 .spot-hyde.active { background-position:-130px -120px; }
@@ -171,7 +174,7 @@ p { font-size:.85em; margin:10px 10px, 0px;  text-align:justify; }
 .spot-ulaanbaatar.active { background-position:-130px -120px; }
 
 
-/* Distinguish the "cover page" visually other sections. */
+/*Visually distinguish first section from other sections*/
 body.section-0 #map { opacity:0.75; }
 
 @media (max-width:640px) {
@@ -195,6 +198,8 @@ body.section-0 #map { opacity:0.75; }
     top:0px; left:0px; right:0px;
     }
   #pane { width:100%; }
+
+/*  Make map extra wide so that it remains centered even with text section at left*/
   #map  {
     bottom:0%;
     left:0%;
@@ -203,6 +208,7 @@ body.section-0 #map { opacity:0.75; }
     }
   }
 
+/*Set text size*/
 @media (min-width:1280px) {
   body {
     font-size:16px;
@@ -217,354 +223,353 @@ body.section-0 #map { opacity:0.75; }
 
 <div id='pane'><div id='map'></div></div>
 
+<!-- All of the different text sections. Section ID links each section to GeoJSON coordidnates, marker icons -->
 <article>
   <section id='cover' class='cover active'>
     <h1>Crossing the Rubikhan:</h1>
     <h3> A Journey from England to Mongolia</h3>
-    <p>This summer, three friends – Benjie, Nick, and Cooper – will attempt to drive nearly 10,000 miles from England to Mongolia. As participants in the annual Mongol Rally, these young men are not only embarking on this journey in the name of adventure, but also in the name of goodwill: they are also fundraising for, and raising awareness of, two important charities: the Cool Earth Foundation, which is dedicated to rainforest preservation, and SOS Children's Villages, which provides foster care for orphaned or abandoned children in destitute communities.</p>
-    &nbsp;
+    <p>This summer, three friends – Benjie, Nick, and Cooper – will attempt to drive nearly 10,000 miles from England to Mongolia. As participants in the annual Mongol Rally, these young men are not only embarking on this journey in the name of adventure, but also in the name of goodwill: before, during, and after the rally, they are fundraising for two important charities: the Cool Earth Foundation, which is dedicated to rainforest preservation, and SOS Children's Villages, which provides foster care for orphaned or abandoned children in destitute communities.</p>
     <p>This interactive map traces Team Crossing the Rubikhan's (tentative) route from start to finish, identifying many of the notable sites and cities that they'll visit along the way. Follow along, and join in the adventure!</p>
-    &nbsp;
     <h3>Scroll ▼ to begin</h3>
   </section>
 
   <section id='hyde'>
    <h2>Hyde Park</h2>
-&nbsp;
+ 
 <p> Hyde Park, located in Central London, marks the starting point of the 2014 Mongol Rally. Here, nearly a thousand insane people, crammed into hundreds of comically unsuitable cars, will set off on what will likely be the grandest adventure of their lives. </p>
-&nbsp;
-<p> <strong>Projected Progress: </strong> This is where it all begins. Our car will be in tip-top shape (or as close to tip-top shape as it'll ever be...), we’ll all be friends, and a potent cocktail of adrenaline and sheer dread will be coursing through our veins.</p>
-&nbsp;
-<p> <strong>Fun Fact: </strong> British law dictates that cars must drive on the left side of the road. Team Crossing the Rubikhan intents to bypass this confusion by driving in reverse all the way to Dover. </p>
+ 
+<p> <strong>Projected Progress: </strong> This is where it all begins. Our car will be in tip-top shape (or as close to tip-top shape as it'll ever be...), we’ll all still be friends, and a potent cocktail of excitement, adrenaline and sheer dread will be coursing through our veins.</p>
+ 
+<p> <strong>Fun Fact: </strong> British law dictates that cars drive on the left side of the road. Team Crossing the Rubikhan intends to overcome any confusion by driving in reverse all the way to Dover. </p>
  </section>
 
   <section id='dover'>
    <h2>Dover</h2>
-&nbsp;
-<p> This modest coastal town, known for its proximity to the chalky white cliffs of Southeast England, is also the primary port for the ferries that traverse the English Channel. Dover's name comes from the Old English word for "dive", as this town hosted the 1325 international cliff-diving competition.</p>
-&nbsp;
-<p> <strong>Projected Progress: </strong> Cheapskates that we are, we intend to take the not-so-riveting car ferry across the channel, rather than the supercool Chunnel, which transportation expert Nick assures us is a portmanteau of the words “cheese” and “funnel.” </p>
-&nbsp;
-<p> <strong>Fun Fact: </strong>Nick has never successfully beaten the "Cliffs of Dover" song in Guitar Hero on the Expert difficulty setting. Noob.</p>
+ 
+<p> This modest coastal town, best known for its proximity to the chalky white cliffs of Southeast England, also serves as the primary port for the ferries that ply the English Channel.</p>
+ 
+<p> <strong>Projected Progress: </strong> Cheapskates that we are, we intend to take the not-so-riveting car ferry across the channel, rather than the supercool sub-surface Chunnel, which transportation expert Nick claims is a portmanteau of the words “cheese” and “funnel.” </p>
+ 
+<p> <strong>Fun Fact: </strong>Dover's name comes from the Old English word for "dive", as this town hosted the 1325 international cliff-diving championship.</p>
  </section>
 
  <section id='calais'>
    <h2>Calais</h2>
-   &nbsp;
-<p> Calais is our gateway to Continental Europe. Its mean temperature in July is 63F – so, a little cooler than DC (Nick's hometown), but a little warmer than Hanover, New Hampshire (where the boys go to school). Super chouette!</p>
-&nbsp;
+    
+<p> Calais is our gateway to Continental Europe. Its mean temperature in July is 63F – so, a little cooler than DC (Nick's hometown), but a little warmer than Hanover, New Hampshire (where the boys go to school). That's about it.</p>
+ 
 <p> <strong>Projected Progress: </strong> Much to Benjie's chagrin – he's a fluent French speaker, and proud Francophile – our tight driving schedule means that we'll have to speed through Calais with brief pitsops only for croissants, stinky fromage, and public miming performances.</p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> Calais is actually an artificial island, which is good because we are artificial people with artificial hopes and dreams. </p>
  </section>
 
  <section id='ghent'>
    <h2>Ghent</h2>
-   &nbsp;
-<p> Rumor has it that this picturesque Belgian city, replete with canals, gabled houses, and cute little food carts peddling delicious <del>French</del> fries, is enchanted. Along with every other mercantile city in Belgium.</p>
-&nbsp;
+    
+<p> Rumor has it that this picturesque Belgian city, replete with canals, gabled houses, and cute little food carts peddling delicious <del>French</del> fries, is enchanted. Along with every other quaint mercantile city in Belgium.</p>
+ 
 <p> <strong>Projected Progress: </strong> Sadly, we'll likely have to ogle Ghent from the windows of our car, as we speed through Western Europe in hopes of making it to the rally's official European launch in Prague the next day. </p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> People from Ghent are called “Rope Bearers” because they once rebelled against their king, who subsequently punished them by making them wear ropes. How humiliating! </p>
  </section>
 
  <section id='nuremberg'>
    <h2>Nuremberg</h2>
-&nbsp;
+ 
 <p> Located some 170 kilometers north of Munich, this quintessential European city boasts a beautiful medieval castle, a walled city center, and beer that is probably a little bit too expensive for us to enjoy. </p>
-&nbsp;
-<p> <strong>Projected Progress: </strong>Assuming we stick to our schedule, we'll probably arrive in Nuremburg at around 4am, which is the perfect time for sightseeing. (Said no one ever.)</p>
-&nbsp;
+ 
+<p> <strong>Projected Progress: </strong>Assuming we stick to our schedule, we'll probably arrive in Nuremburg at around 3:30am, which is the perfect time for sightseeing. Said no one ever.</p>
+ 
 <p> <strong>Fun Fact: </strong> The official language of Germany is German (surprise!), which Nick took for three nonconsecutive terms in order to wreck his GPA.</p>
  </section>
 
  <section id='klenova'>
    <h2>Klenová</h2>
-   &nbsp;
+    
 <p> This tiny Czech hamlet – and more specifically, the castle that towers over it – hosted the 2013 European Launch Party. Whether we'll actually make it here remains to be seen, but we thought we'd add it to the map anyway, for the sake of visual balance. Or something.</p>
-&nbsp;
+ 
 <p> <strong>Projected Progress: </strong> Cooper and Nick will relive the glory days of the term they spent in the Czech Republic by getting inappropriately drunk on a farm in the middle of nowhere. Shout out to Professor Mollett and Farm Party 2012!</p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> Despite its global reputation, Klenova is often confused for a big field. Even by people who have lived there for generations. </p>
  </section>
 
  <section id='prague'>
    <h2>Prague</h2>
-   &nbsp;
+    
 <p> Nick and Cooper spent spring 2012 in Prague, studying urban development and post-Soviet social transformation. While Prague is often heralded (by Nick and Cooper) as The Greatest City in the World, they quickly learned that it has problems like any other: for instance, sometimes a half-liter of beer costs upward of $1.50 in the city center, (as opposed to the usual $1). Also, sunsets over the Charles Bridge are occasionally obscured by clouds, and are thus only sort of spectacular. Oh yeah, and the faceless baby sculptures are kind of terrifying. </p>
-&nbsp;
+ 
 <p> <strong>Projected Progress: </strong> Given Nick and Cooper's nostalgic connection to the city, the team hopes to spend a day or two in Prague, revisiting old haunts and catching up with local friends. (Sorry Benjie, majority rules!)</p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> The Czech Republic has the strongest economy AND the most equine statues in Central Europe. The Czech Republic is also stubbornly unwilling to actually define the geographic boundaries of Central Europe. </p>
  </section>
 
 <section id='vienna'>
    <h2>Vienna</h2>
-&nbsp;
+ 
 <p> Vienna is the capital and largest city of Austria. It is a bustling hub of culture, art, commerce, and shockingly overpriced food. Vienna is known as the “City of Music,” having been home to famous composers like Mozart, Haydn, Beethoven, and Bonzo the Guitar Playing Chimpanzee (citation needed). </p>
-&nbsp;
+ 
 <p> <strong>Projected Progress: </strong> Benjie hopes that his standard uniform of dirt covered t-shirt, ripped shorts, and Toms (along with his seldom used royal title) will be sufficient to secure an invite to one of the renowned Viennese balls. </p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> Austria is the second cousin once removed of Australia. Cooper and Nick are both geography majors, so you can definitely trust us on this one.</p>
  </section>
 
 <section id='zagreb'>
    <h2>Zagreb</h2>
-   &nbsp;
+    
 <p> According to Google, Zagreb, also the capital and largest city of Croatia, looks remarkably similar to the other Central European capitals along our route (i.e., Prague and Vienna): red roofs and church spires define a cityscape that is better suited for a Disney fairytale than for four grimy 22-year-olds in a beat up old car. </p>
-&nbsp;
+ 
 <p> <strong>Projected Progress: </strong> The team will likely breeze through Zagreb en route to the stunning Adriatic Coast.</p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> Zabreb is the least alphabetical capital in the world – narrowly beating out Armenia’s equally alphabetically challenged capital, Yerevan. Also, in the early 20th century, the city was temporarily renamed "Sregrub" (incidentally, "burgers"  spelled backward), as the erstwhile mayor was an unabashed foodie and fan of American culture.</p>
  </section>
 
  <section id='split'>
    <h2>Split</h2>
-&nbsp;
+ 
 <p> Split is a beautiful coastal city located in Central Dalmatia. Unfortunately for the Rubikhans, city is a popular tourist destination in the summer, due to its location on the pristine Adriatic Sea, its rich cultural history (the city was originally founded to support the Roman emperor Diocletian's nearby palace), and its world-famous banana splits.</p>
-&nbsp;
+ 
 <p> <strong>Projected Progress: </strong> The team intends to spend an afternoon unwinding on Split's public beach...because the best way to decompress after sitting in a car for countless hours is by sitting somewhere else!</p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> Locals have given Split the nickname “The Most Beautiful City in the World.” This is likely because they have never been to White River Junction, Vermont.  </p>
 </section>
 
  <section id='dubrovnik'>
    <h2>Dubrovnik</h2>
-&nbsp;
+ 
 <p> Despite its name, the “Pearl of the Adriatic” is not actually found inside an oyster, but rather, in southern Croatia! Dubrovnik is another picturesque sunny tourist town and a UNESCO World Heritage Site. </p>
-&nbsp;
+ 
 <p> <strong>Projected Progress: </strong> While the team will surely want to stay here forever, the open road beckons, and so after a day of relaxation, we will grudgingly continue east.</p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> In order to reach Dubrovnik, the team must cross a miniscule sliver of Bosnia and Herzegovina. We may attempt sidestep the border crossing by driving directly into the ocean.</p>
  </section>
 
  <section id='sarajevo'>
    <h2>Sarajevo</h2>
-   &nbsp;
+    
 <p> In a work of astounding deceit, Sarajevo has managed to become the capital of both Bosnia AND Herzegovina. What a selfish capital. Sarajevo is also known as the “Jerusalem of Europe” due to its storied history of Jewish, Muslim, Catholic, and Orthodox cultural influence. Unfortunately, this means that the city is also somewhat of a powderkeg, and it bears the unfortunate scars of many conflicts. </p>
-&nbsp;
+ 
 <p> <strong>Projected Progress: </strong>After spending several days on the beautiful Adriatic Sea, the team will likely find Sarajevo to be grim and depressing. That being said, the city has a fascinating history, and the monuments to show for it. The city will also be the team's first predominantly Islamic pitstop on the rally.</p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> While the city is famous for hosting the 1984 Olympics, it is even more famous for producing thousands of photo galleries of abandoned Olympic facilities.
  </section>
 
  <section id='sofia'>
    <h2>Sofia</h2>
-&nbsp;
+ 
 <p>The capital of Bulgaria boasts a unique mix of medieval European, socialist, and Ottoman architecture. Traffic conditions in Sofia are apparently quite frightful – making Sofia the ideal place to teach Nick to drive stick! </p>
-&nbsp;
+ 
 <p> <strong>Projected Progress: </strong> Despite the city's diverse architecture, the team likely won't dally here for long, as parking headaches are not exactly what we pictured when we first dreamed up this absurd road trip across Eurasia.</p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> Sofia is one of only a couple of European capitals with a ski resort nearby. It will not be open in July. </p>
  </section>
 
  <section id='istanbul'>
    <h2>Istanbul</h2>
-&nbsp;
+ 
 <p> Istanbul is the third largest city in the world and, with the possible exception of London, the biggest urban area we’ll encounter on our journey. Straddling the Bosphorus Strait, Istanbul lies at the very intersection of Europe and Asia. While the city harbors countless exciting tourist sites – from markets to mosques to cobbled alleyways – auto mechanics are at the top of our list. </p>
-&nbsp;
+ 
 <p> <strong>Projected Progress: </strong> Istanbul will be an important point of recalibration for Crossing the Rubikhan, as we’ll take a few days to fix any dings to our car, and to see the sites in this sprawling melting pot of cultures and continents.</p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> They Might be Giants said it best: “Istanbul not Constantinople.” </p>
  </section>
 
  <section id='ankara'>
    <h2>Ankara</h2>
-   &nbsp;
+    
 <p> Located in the heart of Anatolia, Ankara is the political and geographic capital of Turkey. Although Ankara is typically overshadowed by its big brother to the northwest, it has developed a strong culture of its own, and contains several interesting sites, including a shopping mall and a roller skating rink. </p>
-&nbsp;
+ 
 <p> <strong>Projected Progress: </strong>Jokes aside, Cooper actually lived in Ankara for a summer, and so he'll probably want to drag his teammates to his favorite spots around town, and show off his sweet Turkish skills. Sorry, guys!</p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> The Turkish word for "crowded" is homophonous with the Turkish word for "fish sandwich." Coincidence? We think not.</p>
  </section>
 
   <section id='goreme'>
    <h2>Göreme</h2>
-   &nbsp;
+    
 <p> Göreme is a small town located in Central Turkey’s famed Cappadocia region. The town is surrounded by and filled with the iconic “fairy chimney” rocks that give Cappadocia its eerily beautiful alien landscape. </p>
-&nbsp;
+ 
 <p> <strong>Projected Progress: </strong> It would be a terrible shame to drive across Turkey and not stop to see these beautiful rock formations, or to explore the adjacent ancient cities carved into cliffsides. While Cappadocia is a bit of a detour, Crossing the Rubikhan has never really cared too much about efficiency.</p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> Hot air balloons are extremely popular in arid Cappadocia. Unfortunately, however, they are not an effective means of transport and are also not big enough to carry our car.
  </section>
 
  <section id='batumi'>
    <h2>Batumi</h2>
-&nbsp;
+ 
 <p> Batumi is a Black Sea port city that lies just north the Georgia-Turkey border. Due to its subtropical climate and coastal location, Batumi is a popular tourist destination with myriad beachfront clubs that have been described by some locals as "გზა ძალიან ხარ ხმამაღალი." We're inclined to agree.</p>
-&nbsp;
+ 
 <p> <strong>Projected Progress: </strong> After traversing dusty Asia Minor, Team Crossing the Rubikhan will be gladly indulge in "acharuli khachapuri", a viking-boat shaped pizza thing with an egg in the middle. Your guess is as good as ours. </p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> The Georgian alphabet looks suspiciously like Elvish. Just saying.
  </section>
 
 <section id='tbilisi'>
    <h2>Tbilsi</h2>
-&nbsp;
+ 
 <p> Sadly, the Georgian capital will forever sit in the shadows of Atlanta, a much more prominent Georgian capital. Tbilisi pathetically touts its narrow, centuries-old alleyways and lush courtyards as superior to Atlanta’s 16-lane highways and massive concrete buildings. Tbilsi’s backdrop of the Caucasus Mountains pales in comparison to the traffic and smog for which Atlanta is revered. </p>
-&nbsp;
+ 
 <p> <strong>Projected Progress: </strong> We will likely use the city as a launching point for a brief venture into the verdant foothills of the Caucasus Mointains.</p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> Georgia is famous for its wine. This is perfect for Benjie, who is famous for his wine snobbery.
  </section>
 
   <section id='baku'>
    <h2>Baku</h2>
-   &nbsp;
+    
 <p> The capital of Azerbaijan's claim to fame is that its annual average temperature is exactly the same as the average annual temperature of the planet! There are also  some cool palaces and temples, apparently. It is here that we will (hopefully) catch a ferry across the Caspian Sea to Turkmenistan.</p>
-&nbsp;
+ 
 <p> <strong>Projected Progress: </strong> The trans-Caspian ferry ride is far and away the most unpredictable stage of our journey. This is because the passage will not really be on a ferry at all, but rather, a decrepit cargo ship with a bit of extra room for us. These cargo ships do not adhere to a schedule, but simply depart as soon as they are full. They also tend to sink every now and again. Fortunately, we've been assured by Azeri officials that this sudden loss of buoyancy is actually just an innovative design feature.</p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> Baku is 28 meters below sea level, making it the lowest national capital in the world.
  </section>
 
  <section id='caspian'>
    <h2>The Middle of the Caspian Sea</h2>
-   &nbsp;
+    
 <p> We felt this location deserved its own marker, since the boat ride itself will likely be a long and memorable experience. In the 2-5 days that we can expect to spend aboard the cargo ship, we'll hopefully catch a glimpse of Neft Daslari, a Russian oil rig that is the largest floating city in the world (~5,000 people), and that inspired the outsanding film "Water World".</p>
-&nbsp;
+ 
 <p> <strong>Projected Progress: </strong> While this leg of the trip will likely be quite slow and tedious, we will certainly relish the opportunity to escape our car. And the opportunity to pee off a moving vessel, which is obviously one of the main perks of traveling by boat.</p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> Unfortunately, the ships do not typically stock food (or water!) for passengers. Fortunately, however, rumor has it that passengers can purchase a meal directly from the chef for the princely sum of three Marlboro cigarettes and a picture of Shakira. 
  </section> 
 
 <section id='turkmenbashi'>
    <h2>Turkmenbashi</h2>
-   &nbsp;
+    
 <p> Welcome to Turkmenistan: the weirdest country this side of North Korea. The city of Turkmenbashi was previously called Krasnovodsk, until Turkmenistan’s President for Life, Saparmurat Niyazov, renamed himself “Turkmenbashi” (meaning “Leader of all Turkmen”), and then named this city after himself as well. Nice one, dude! </p>
-&nbsp;
+ 
 <p> <strong>Projected Progress: </strong> Depending on our luck, we may be in and out of Turkmenbashi in no time. OR we could be delayed offshore for three days, arrested at the border for overstaying our extremely short Turkmen transit visas, and/or find ourselves having to memorize President Niyazov’s 300-page autobiography in order to gain ingress. </p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> Due to the lack of roads in Turkmenistan, domestic flights are heavily subsidized by the government: a ticket from Turkmenbashi to Ashgabat, for example, costs just $14. However, the local fleet is comprised almost exclusively of decommissioned Soviet bombers, kit planes, and balsa wood models. Suffice to say, we will be sticking to the roads. 
  </section>
 
  <section id='ashgabat'>
    <h2>Ashgabat</h2>
-   &nbsp;
+    
 <p> Turkmenistan’s national cult of crazy is predictably strongest in its capital city. A 50-foot golden statue of the dear President stands in Ashgabat's city center, rotating so as to always face the sun. Other highlights include the world’s fourth tallest free-standing flagpole, the Museum of Turkmen National Values, the Turkmen Carpet Museum, and the country's lone ATM. </p>
-&nbsp;
+ 
 <p> <strong>Projected Progress: </strong> Nick's love of free-standing flagpoles has drawn him to Ashgabat since he was just a boy. Sadly, however, the short duration of our transit visas, as well as the exorbitant costs of accommodation in Ashgabat, will pressure us to carry on toward Uzbekistan at top speed. </p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> Can you guess where the three tallest free-standing flagpoles in the world are located? Neither can we.
  </section>
 
   <section id='khiva'>
    <h2>Khiva</h2>
-&nbsp;
+ 
 <p> Khiva is the former capital of the mighty Khwarezmid Empire, also known as the most baddass empire you've never heard of. This city memorializes the great Khwarezm dynasty in its resplendant mosques, madrassas, and palaces. The popular American film "Dude, Where's My Car?" has been adapted for local audiences as "Dude, Khwarezmid Car?"</p>
-&nbsp;
+ 
 <p> <strong>Projected Progress: </strong> We will be sure to check out the city's countless minarets, as well as its lesser-known maxarets. </p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> The large blue tower in the center square was supposed to be a minaret, but the Khan stopped construction when he realized that, if completed, it would overlook his harem and the muezzin would be able to see the Khan’s wives.
  </section>
 
  <section id='bukhara'>
    <h2>Bukhara</h2>
-   &nbsp;
+    
 <p> Located in the middle of a vast oasis, Bukhara is essentially a giant open-air museum. The city contains over 140 meticulously preserved monuments, and its entire historic center has been listed as a UNESCO World Heritage Site. During the golden age of the Samanids, it was the intellectual capital of the Islamic world.</p>
-&nbsp;
+ 
 <p> <strong>Projected Progress: </strong> Team Crossing the Rubikhan will take its time exploring this ornate gem in the middle of nowhere.</p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> This is the first Wikitravel page we encountered where different restaurants and food shops were individually NOT recommended. We're not really sure if that reflects well on the city, or not.
  </section>
 
  <section id='samarkand'>
    <h2>Samarkand</h2>
-   &nbsp;
+    
 <p> At first glance, Samarkand looks exactly like Bukhara and Khiva. This holds true at second and third glance, too. Which is fine by us, seeing as all three of these cities are truly stunning.</p>
-&nbsp;
+ 
 <p> <strong>Projected Progress: </strong> We find it hard to believe that such a beautiful oasis exists between the unforgiving desert of Turkmenistan and the unforgiving but slightly cooler desert of Kazakhstan. The whole thing may just be a mirage with an impressive web/Google Earth presence (for a mirage that is). </p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> The Registan ensemble has a nightly "light show" that involves turning some flood lights on, then turning them off ten minutes later – apparently a pretty underwhelming event.
  </section>
 
  <section id='tashkent'>
    <h2>Tashkent</h2>
-   &nbsp;
+    
 <p> The capital and largest city of Uzbekistan, Tashkent is nicknamed the Stone City because many of the buildings are made out of – you guessed it – stone! In fact, Cooper once read somewhere that Tashkent has more marble buildings than any other city in the world! Or maybe it was that the game of marbles is very popular there. One or the other. </p>
-&nbsp;
+ 
 <p> <strong>Projected Progress: </strong> We'll gladly revel in the opportunity to observe the city's myriad Soviet-style monuments, which were altogether absent from Cooper and Nick's study abroad experience in the Czech Republic – not to mention like half of the cities we’ve passed through since France. </p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> Tashkent is an obscure portmanteau of Nick's father’s name and the popular TV show, Tosh.O.
  </section>
 
   <section id='osh'>
    <h2>Osh</h2>
-   &nbsp;
+    
 <p> Osh is the second largest and the second most capital city of Kyrgystan. The city boasts the most crowded market in Central Asia, although we're not really sure how crowdedness is measured these days. We're a little bit scared to find out.</p>
-&nbsp;
+ 
 <p> <strong>Projected Progress: </strong> Here we intend to sample Kyrgyzstan's national dish, Beshbarmak, which literally means "five fingers." Hopefully, this is not a literal description. </p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> There is a three story yurt in the city center. And no, the stories are not the ground floor, the roof, and a person standing on someone’s shoulders on the roof.
  </section>
 
   <section id='bishkek'>
    <h2>Bishkek</h2>
-   &nbsp;
+    
 <p> Bishkek is the capital and largest city of Kyrgystan. “The ‘kek," as it's known to locals, is currently undergoing a rapid cultural, archictural, and economic transformation. Incidentally, Cooper may spend the entirety of next year in Bishkek, researching and writing about said transformation.</p>
-&nbsp;
+ 
 <p> <strong>Projected Progress: </strong> Bishkek is widely regarded as the most progressive and hospitable of the 'stan capitals. Which is a good thing, seeing as we may need to stay here awhile in order to patch up any injuries our car may have sustained on the mountainous drive from Osh.</p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> Kyrgystan has a refreshingly easy visa process, which is something that should never be undervalued. We're looking at you, Russia.
  </section>
 
   <section id='almaty'>
    <h2>Almaty</h2>
-   &nbsp;
+    
 <p> Despite its size, sprawling Almaty lost its capitalship to distant Astana in 1997. It is easily the most developed and diverse city in Kazakhstan...whatever that means. Almaty lies just a stone's throw from Bishkek (if you have the arm strength of Goliath, that is). </p>
-&nbsp;
+ 
 <p> <strong>Projected Progress: </strong>As the last major city we'll hit before Ulaanbaatar, we'll definitely want to stock up on equipment, supplies, and human interaction before facing a couple weeks of the open road.</p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> There is no queuing etiquette at the Kyrgz-Kazakh border. Apparently, the thing to do is to stand your ground regardless of what other people say in order to get in front of you. So, kind of like the Collis Café at lunch.
  </section>
 
   <section id='semey'>
    <h2>Semey</h2>
-   &nbsp;
+    
 <p> Semey is a small city on the Kazakh-Russia border, and our point of egress from the ‘Stans. It is culturally quite Russian – in fact, its residents even suffer sever health problems as a result of longtime exposure to radiation from the nearby atomic testing sites! </p>
-&nbsp;
+ 
 <p> <strong>Projected Progress: </strong> Don’t worry, Mom and Dad, we will be getting out of this city and onto the Russian highways as soon as the border guards let us through.</p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> Many of the descriptive passages in “The Brothers Karamazov” is based off of Dostoyevsky’s experience in Semey. That should tell you something.
  </section>
 
   <section id='barnaul'>
    <h2>Barnaul</h2>
-   &nbsp;
+    
 <p>Did you know that Siberia is home to Russia’s third largest city? That city is not Barnaul, but Novosibirsk, which lies a few hours to the north of here. The primary industries of Barnaul and Novosibirsk are chemical production and hydroelectricity. Tourism comes 83rd, according to a resident of Barnaul. However, this estimate is probably quite generous. </p>
-&nbsp;
+ 
 <p> <strong>Projected Progress: </strong> We may make the three-hour detour up to Novosibirsk, just to see Siberia’s largest city...but in all likelihood, we'll instead take advantage of Russia's incredible highway system to get in and out of the country as quickly as possible.</p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> Novosibirsk may well be the largest city in the world where almost no one speaks English. Probably not, but there’s got to be a superlative somewhere in there.
  </section>
 
   <section id='khovd'>
    <h2>Khovd</h2>
-&nbsp;
+ 
 <p> This "city", best known for its watermelon and tomato harvests, offers more than meets the eye. Unless you’re standing in the nearby hillside cemetery, in which case it is exactly what meets the eye. </p>
-&nbsp;
+ 
 <p> <strong>Projected Progress: </strong> After spending a few days on the Mongolian “roads” – and we use that term liberally – Khovd will seem like a surreal metropolis to us, full of modern-day amenities like buildings and people. </p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> There is no “By Car” section on the Wikitravel page for how to get into Khovd. This should theoretically be alarming.
  </section>
 
   <section id='bayankhongor'>
    <h2>Bayankhongor</h2>
-   &nbsp;
+    
 <p> Bayankhongor is the next sizable settlement we'll encounter on our trek across the Mongol steppe. Winter snow disasters, or “zud,” in the early 2000s devastated Bayankhongor’s economy, and demarcated a shift away from herding and towards moving to Ulaanbaatar. The same storms actually benefitted the ice economy of Benjie's heart. </p>
-&nbsp;
+ 
 <p> <strong>Projected Progress: </strong> By this point – assuming we make it this far – our car will likely be in shambles, but our spirits should be high. Or low. We're not really sure, come to think of it. </p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> Bayankhongor bears the enviable title of "only destination on our route that is so small its name has not been transcribed into the Latin alphabet on OpenStreetMap."
  </section>
 
  <section id='ulaanbaatar'>
    <h2>Ulaanbaatar</h2>
-   &nbsp;
-<p> This sprawling megalopolis marks the end of our journey! Ulaanbaatar is home to nearly half of Mongolia’s population, and while it is an architectural monstrosity, the city more than makes up for its appearance with its warm-hearted people and paved roads.</p>
-&nbsp;
+    
+<p> This sprawling industrial megalopolis marks the end of our journey! Ulaanbaatar is home to nearly half of Mongolia’s population, and while it is an architectural monstrosity, the city more than makes up for its appearance with its warm-hearted people and paved roads.</p>
+ 
 <p> <strong>Projected Progress: </strong> Fin. Done. Kaputt. Truthfully, we'll require a great deal of luck in order to reach this destination intact. In fact, we don’t really want to write anything else here for fear of jinxing the situation. (As if superstition will save us.)</p>
-&nbsp;
+ 
 <p> <strong>Fun Fact: </strong> Ulaanbaatar is the coldest capital in the world. The winter Mongol Rally is going to be a doozy.
  </section>
 
@@ -572,6 +577,7 @@ body.section-0 #map { opacity:0.75; }
 
 
 <script>
+// Map point coordinates. First one is for "cover page" (no marker). ID property corresponds to section (HTML), marker (CSS) 
 var geojson = [
   { "geometry": { "type": "Point", "coordinates": [52, 57] },
     "properties": { "id": "cover", "zoom": 3 } },
@@ -678,6 +684,7 @@ var geojson = [
     "properties": { "id": "ulaanbaatar",  "zoom": 7 } }
 ];
 
+//Generate tile layer from Mapbox.com map
 var tiles = mapbox.layer().tilejson({
   tiles: [ "https://a.tiles.mapbox.com/v3/crossingtherubikhan.hf648fpg/{z}/{x}/{y}.png" ]
 });
@@ -685,44 +692,42 @@ var tiles = mapbox.layer().tilejson({
 // Use https for markers
 mapbox.markers.marker_baseurl = 'https://a.tiles.mapbox.com/v3/marker/';
 
+//Generate marker layer using GeoJSON data above
 var spots = mapbox.markers.layer()
-  // Load up markers from geojson data.
   .features(geojson)
-  // Define a new factory function. Takes geojson input and returns a
-  // DOM element that represents the point.
+  // This factor function takes each geojson input and returns a
+  // DOM element that represents the point, for use in scrolling
   .factory(function(f) {
     var el = document.createElement('div');
     el.className = 'spot spot-' + f.properties.id;
     return el;
   });
 
-// Creates the map with tile and marker layers and
-// no input handlers (mouse drag, scrollwheel, etc).
+//Create a map using tiles and spots layers defined above. Null argument corresponds to map dimensions, which are set with CSS. Add click+drag panning handler. 
 var map = mapbox.map('map', [tiles, spots], null, [
   easey_handlers.DragHandler(),
-  // easey_handlers.DoubleClickHandler(),
-  // easey_handlers.MouseWheelHandler(),
 ]
 );
 
+//Add map zoom in/zoom out icons. Appearance/location set with CSS.
 map.ui.zoomer.add();
 
+//Constrain map zoom
 map.setZoomRange(3, 10);
 
-
-// Array of story section elements.
+// Generate an array of all the different section elements
 var sections = document.getElementsByTagName('section');
 
-// Array of marker elements with order matching section elements.
+// Generate an array of marker elements with their matching section elements
 var markers = _(sections).map(function(section) {
   return _(spots.markers()).find(function(m) {
     return m.data.properties.id === section.id;
   });
 });
 
-// Helper to set the active section.
+//Function to help set the active section
 var setActive = function(index, ease) {
-  // Set active class on sections, markers.
+  // Switch to active class for sections and marker
   _(sections).each(function(s) { s.className = s.className.replace(' active', '') });
   _(markers).each(function(m) { m.element.className = m.element.className.replace(' active', '') });
   sections[index].className += ' active';
@@ -731,17 +736,16 @@ var setActive = function(index, ease) {
   // Set a body class for the active section.
   document.body.className = 'section-' + index;
 
-  // Ease map to active marker.
+  // Ease map to active marker
   if (!ease) {
     map.centerzoom(markers[index].location, markers[index].data.properties.zoom||14);
   } else {
     map.ease.location(markers[index].location).zoom(markers[index].data.properties.zoom||14).optimal(0.3, 3.00);
   }
-
   return true;
 };
 
-// Bind to scroll events to find the active section.
+// Bind to scroll events to find the active section
 window.onscroll = _(function() {
   // IE 8
   if (window.pageYOffset === undefined) {
@@ -752,12 +756,10 @@ window.onscroll = _(function() {
     var h = window.innerHeight;
   }
 
-  // If scrolled to the very top of the page set the first section active.
-  if (y === undefined) return setActive(0, true);
+  // If user has scrolled to the the very top of the page set the first section as active
+  if (y === undefined || y === 0) return setActive(0, true);
 
-  // Otherwise, conditionally determine the extent to which page must be
-  // scrolled for each section. The first section that matches the current
-  // scroll position wins and exits the loop early.
+  // Otherwise, conditionally determine the extent to which page must be scrolled for each section to activate. The first section that matches the current scroll position exits the loop
   var memo = 0;
   var buffer = (h * 0.3333);
   var active = _(sections).any(function(el, index) {
@@ -765,12 +767,11 @@ window.onscroll = _(function() {
     return y < (memo-buffer) ? setActive(index, true) : false;
   });
 
-  // If no section was set active the user has scrolled past the last section.
-  // Set the last section active.
+  // If no section was set active the user has scrolled past the last section, so set the last section as active
   if (!active) setActive(sections.length - 1, true);
 }).debounce(10);
 
-// Set map to first section.
+// Set map to first section by default
 setActive(0, false);
 </script>
 
