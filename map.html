@@ -698,14 +698,10 @@ var spots = mapbox.markers.layer()
 // Creates the map with tile and marker layers and
 // no input handlers (mouse drag, scrollwheel, etc).
 var map = mapbox.map('map', [tiles, spots], null, [
-  easey_handlers.DragHandler(),
-  // easey_handlers.DoubleClickHandler(),
-  // easey_handlers.MouseWheelHandler(),
-]
-);
+  easey_handlers.DragHandler()
+]);
 
 map.ui.zoomer.add();
-
 map.setZoomRange(3, 10);
 
 
