@@ -608,25 +608,25 @@ var geojson = [
   { "geometry": { "type": "Point", "coordinates": [18.406219, 43.855171] },
     "properties": { "id": "sarajevo",  "zoom": 8 } },
     
-  { "geometry": { "type": "Point", "coordinates": [23.3230598, 42.6977149] },
+  { "geometry": { "type": "Point", "coordinates": [23.323059, 42.6977149] },
     "properties": { "id": "sofia", "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [28.9651646, 41.0096334] },
+  { "geometry": { "type": "Point", "coordinates": [28.965164, 41.009633] },
     "properties": { "id": "istanbul",  "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [32.8520491, 39.9272237] },
+  { "geometry": { "type": "Point", "coordinates": [32.852049, 39.927223] },
     "properties": { "id": "ankara",  "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [34.8296234, 38.642089] },
+  { "geometry": { "type": "Point", "coordinates": [34.829623, 38.642089] },
     "properties": { "id": "goreme",  "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [41.6360085, 41.6509502] },
+  { "geometry": { "type": "Point", "coordinates": [41.636008, 41.650950] },
     "properties": { "id": "batumi", "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [44.8015706, 41.6935009] },
+  { "geometry": { "type": "Point", "coordinates": [44.801570, 41.693500] },
     "properties": { "id": "tbilisi",  "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [49.8466787, 40.3925137] },
+  { "geometry": { "type": "Point", "coordinates": [49.846678, 40.392513] },
     "properties": { "id": "baku",  "zoom": 8 } },
 
   { "geometry": { "type": "Point", "coordinates": [51.383057, 40.152375] },
@@ -635,16 +635,16 @@ var geojson = [
   { "geometry": { "type": "Point", "coordinates": [52.992897, 40.001903] },
     "properties": { "id": "turkmenbashi",  "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [58.3874263, 37.9396678] },
+  { "geometry": { "type": "Point", "coordinates": [58.387426, 37.939667] },
     "properties": { "id": "ashgabat", "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [60.3620006, 41.3776893] },
+  { "geometry": { "type": "Point", "coordinates": [60.362000, 41.377689] },
     "properties": { "id": "khiva",  "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [64.4231326, 39.7675529] },
+  { "geometry": { "type": "Point", "coordinates": [64.231326, 39.767529] },
     "properties": { "id": "bukhara",  "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [66.9607742126004, 39.6415721] },
+  { "geometry": { "type": "Point", "coordinates": [66.960774, 39.641572] },
     "properties": { "id": "samarkand",  "zoom": 8 } },
 
   { "geometry": { "type": "Point", "coordinates": [69.228973, 41.292092] },
@@ -671,7 +671,7 @@ var geojson = [
   { "geometry": { "type": "Point", "coordinates": [100.710468, 46.183803] },
     "properties": { "id": "bayankhongor", "zoom": 8 } },
 
-  { "geometry": { "type": "Point", "coordinates": [106.975911816806, 47.9462225] },
+  { "geometry": { "type": "Point", "coordinates": [106.975911, 47.946222] },
     "properties": { "id": "ulaanbaatar",  "zoom": 8 } }
 ];
 
@@ -695,7 +695,10 @@ var spots = mapbox.markers.layer()
 
 // Creates the map with tile and marker layers and
 // no input handlers (mouse drag, scrollwheel, etc).
-var map = mapbox.map('map', [tiles, spots], null, []);
+var map = mapbox.map('map', [tiles, spots], null, [
+  easey_handlers.DragHandler()
+]);
+
 
 // Array of story section elements.
 var sections = document.getElementsByTagName('section');
